@@ -222,7 +222,7 @@ async def send_msg(ok, cid):
 	global i
 	global chat_id
 	if (ok == 0):
-		await operator.send_message(cid, 'По данным филтрам ничего найти не получилось', parse_mode='html')
+		await operator.send_message(cid, 'По данным фильтрам ничего найти не получилось', parse_mode='html')
 		i = 0
 	else:
 		await operator.send_photo(cid, photo=open(f"img/{lines[i]['id']}.png", "rb"))
