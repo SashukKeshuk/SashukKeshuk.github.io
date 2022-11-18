@@ -48,8 +48,14 @@ body {
 }
 
 .chekbx{
-  transform: scale(3);
+  height: calc(3vw);
+  width: calc(3vw);
   margin-bottom: 10px;
+}
+
+#bt1,#bt2{
+  height: calc(3vw);
+  width: calc(3vw);
 }
 
 .inner2{
@@ -99,7 +105,6 @@ body {
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
-	height: 30px;
 }
 .p1, .p2{
 	display: flex;
