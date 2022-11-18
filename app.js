@@ -5,16 +5,16 @@ let width = document.documentElement.scrollWidth;
 
 tg.expand();
 
-let cost_from=50000,cost_to=15000000;
+let cost_from=0,cost_to=60000000;
 
 $("#slider2").ionRangeSlider({
     type: "double",
     skin:"round",
-    min: 50000,
-    max: 15000000,
-    from: 50000,
-    to: 15000000,
-    step: 1000,
+    min: 0,
+    max: 60000000,
+    from: 0,
+    to: 60000000,
+    step: 500000,
 	postfix: '$',
 	hide_min_max: true,
     onFinish: function (data) {
@@ -28,11 +28,11 @@ $("#slider2").ionRangeSlider({
 $("#slider1").ionRangeSlider({
     type: "double",
     skin:"round",
-    min: 50000,
-    max: 1236000,
-    from: 50000,
-    to: 15000000,
-    step: 1000,
+    min: 0,
+    max: 60000000,
+    from: 0,
+    to: 60000000,
+    step: 500000,
 	postfix: '$',
 	hide_min_max: true,
     onFinish: function (data) {
@@ -52,12 +52,21 @@ function SendData(){
 		let data='';
 		if (document.getElementById("bt1").checked==1) data+='new_building ';
 		if (document.getElementById("bt2").checked==1) data+='from_the_owner ';
+		
 		if (document.getElementById("bt2").checked!=1 && document.getElementById("bt1").checked!=1) data+='new_building from_the_owner ';
+		
 		data+=cost_from+' '+cost_to+' ';
 		if (document.getElementById("el1").checked==1) data+='Dubai ';
+
+		if (document.getElementById("el1").checked!=1) data+='Dubai ';
+
 		if (document.getElementById("el5").checked==1) data+='apartment ';
 		if (document.getElementById("el2").checked==1) data+='townhouse ';
-		if (document.getElementById("el6").checked==1) data+='villa ';
+		if (document.getElementById("el6").checked!=1) data+='villa ';
+
+		if (document.getElementById("el5").checked!=1 && document.getElementById("el2").checked!=1 && document.getElementById("el6").checked!=1)
+			data+='apartment townhouse villa ';
+
 		if (document.getElementById("el7").checked==1) data+='studio ';
 		if (document.getElementById("el8").checked==1) data+='1-k ';
 		if (document.getElementById("el9").checked==1) data+='2-k ';
@@ -65,7 +74,18 @@ function SendData(){
 		if (document.getElementById("el11").checked==1) data+='4-k ';
 		if (document.getElementById("el12").checked==1) data+='5-k ';
 		if (document.getElementById("el13").checked==1) data+='6-k ';
-		if (document.getElementById("el13").checked==1) data+='7-k ';
+		if (document.getElementById("el14").checked==1) data+='7-k ';
+
+		if (document.getElementById("el7").checked!=1 &&
+			document.getElementById("el8").checked!=1 &&
+			document.getElementById("el9").checked!=1 &&
+			document.getElementById("el10").checked!=1 &&
+			document.getElementById("el11").checked!=1 &&
+			document.getElementById("el12").checked!=1 &&
+			document.getElementById("el13").checked!=1 &&
+			document.getElementById("el14").checked!=1) data+='studio 1-k 2-k 3-k 4-k 5-k 6-k 7-k '
+
 		console.log(data);
 		tg.sendData(data);
 }
+
