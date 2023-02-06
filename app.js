@@ -54,7 +54,7 @@ function SendData(){
 		if (document.getElementById("bt2").checked==1) data+='from_the_owner ';
 		
 		data+=cost_from+' '+cost_to+' ';
-		if (document.getElementById("el1").checked==1) data+='Dubai ';
+		if (document.getElementById("el1").checked==1) data+='Rostov ';
 
 		if (document.getElementById("el5").checked==1) data+='apartment ';
 		if (document.getElementById("el2").checked==1) data+='townhouse ';
