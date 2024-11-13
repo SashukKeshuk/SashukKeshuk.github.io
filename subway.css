@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.content-section p {
+  font-family: 'Georgia', serif; /* Элегантный шрифт */
+  font-size: 1.2em; /* Увеличенный размер текста для улучшения читаемости */
+  line-height: 1.6; /* Расстояние между строками */
+  color: #333; /* Тёмный, но не черный цвет */
+  max-width: 1200px; /* Ограничение ширины для удобства чтения */
+  margin: 20px auto; /* Центрирование текста */
+  text-align: justify; /* Выравнивание по ширине */
+  padding: 0 20px; /* Отступы по бокам для улучшения видимости */
+}
+
+.content-section p::first-letter {
+  font-size: 2em; /* Увеличение первой буквы для акцента */
+  font-weight: bold; /* Жирная первая буква */
+  color: #8B0000; /* Тёмно-красный оттенок для первой буквы */
+}
+
+
+.content-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.fly-in-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fly-in-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.images-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0px 50px 0px 50px;
+
+}
+
+.fly-in-image {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 2.4s ease, transform 2.4s ease !important;
+}
+
+.fly-in-image.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.image {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+.p2 {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 1s; /* Задержка в 1 секунду */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.map-container {
+  position: relative;
+  width: 750px; /* Убедитесь, что ширина совпадает с шириной карты */
+  margin: 0 auto;
+  margin-bottom: 50px !important;
+}
+
+.map {
+  display: block;
+  width: 100%; /* Ширина карты совпадает с шириной контейнера */
+  border: 5px solid black;
+  border-radius: 10px;
+  transition: transform 0.3s ease, border-width 0.3s ease;
+}
+
+.station-icon {
+  position: absolute;
+  width: 24px; /* Задайте подходящий размер для иконок */
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.station-icon:hover {
+  transform: scale(1.2); /* Увеличение при наведении */
+}
+
+/* Стили overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Затемнение с прозрачностью */
+  z-index: 90; /* Под popup */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Стили popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 60%; /* Начальная позиция чуть ниже центра */
+  left: 50%;
+  transform: translate(-50%, -50px); /* Немного ниже */
+  width: 400px;
+  padding: 15px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Изначально невидимый */
+  z-index: 100;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Плавные переходы */
+}
+
+.popup.show {
+  display: block;
+  transform: translate(-50%, -50%); /* По центру экрана */
+  opacity: 1; /* Полная видимость */
+}
+
+.popup .close {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Показ overlay */
+.overlay.show {
+  display: block;
+  opacity: 1;
+}

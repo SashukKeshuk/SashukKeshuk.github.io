@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сайт-презентация</title>
+  <link rel="stylesheet" href="subway.css">
+</head>
+<body>
+
+<section class="content-section">
+  <p class="fly-in-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</section>
+
+<section class="images-section">
+  <img src="image1.jpg" alt="Изображение 1" class="image fly-in-image">
+  <img src="image2.jpg" alt="Изображение 2" class="image fly-in-image">
+  <img src="image3.jpg" alt="Изображение 3" class="image fly-in-image">
+</section>
+
+<section class="content-section">
+  <p class="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</section>
+
+  <div class="map-container">
+  <img src="map.png" class="map" alt="Карта метро Минска">
+
+  <!-- Иконка первой станции -->
+  <img src="ico.png" class="station-icon" id="station1" style="top: 270px; left: 360px;" onclick="showPopup(0)">
+
+  <!-- Иконка второй станции -->
+  <img src="ico.png" class="station-icon" id="station2" style="top: 343px; left: 295px;" onclick="showPopup(1)">
+
+  <!-- Затемняющий слой -->
+  <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <p id="popup-text"></p>
+  </div>
+</div>
+
+</div>
+
+
+  <script src="subway.js"></script>
+</body>
+</html>
