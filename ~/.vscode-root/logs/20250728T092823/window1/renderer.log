@@ -1,0 +1,10 @@
+2025-07-28 09:28:23.864 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-vsliveshare.vsliveshare' wants API proposal 'notebookCellExecutionState' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2025-07-28 09:28:23.876 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-python.gather' wants API proposal 'notebookCellExecutionState' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2025-07-28 09:28:23.876 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-python.vscode-pylance' wants API proposal 'mcpConfigurationProvider' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2025-07-28 09:28:24.068 [info] Started local extension host with pid 26424.
+2025-07-28 09:28:24.245 [info] ChatSessionStore: Migrating 0 chat sessions from storage service to file system
+2025-07-28 09:28:24.337 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-07-28 09:28:24.460 [warning] No search provider registered for scheme: file, waiting
+2025-07-28 09:28:26.950 [info] [perf] Render performance baseline is 25ms
+2025-07-28 09:29:45.075 [error] [Extension Host] (node:26424) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
