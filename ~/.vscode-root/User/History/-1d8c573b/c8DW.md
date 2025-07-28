@@ -26,13 +26,13 @@ python -m pip install -r requirements.txt or pip install -r requirements.txt
 - Входим в директорию сканируемого проекта
 - \<\<PATH\>\> - путь до secretfinder
 
-js: `find . -type f -name "*.js" | while read js_file; do python3 <<PATH>>/SecretFinder.py -i "$js_file" -o cli; done` <br>
-py: `find . -type f -name "*.py" | while read py_file; do python3 <<PATH>>/SecretFinder.py -i "$py_file" -o cli; done` <br>
-log: `find . -type f -name "*.log" | while read log_file; do python3 <<PATH>>/SecretFinder.py -i "$log_file" -o cli; done`<br>
-cfg: `find . -type f -name "*.cfg" | while read cfg_file; do python3 <<PATH>>/SecretFinder.py -i "$cfg_file" -o cli; done` <br>
-ini: `find . -type f -name "*.ini" | while read ini_file; do python3 <<PATH>>/SecretFinder.py -i "$ini_file" -o cli; done` <br>
+js: `find . -type f -name "*.js" | while read js_file; do python3 <<PATH>>/SecretFinder.py -i "$js_file" -o cli; done` 
+py: `find . -type f -name "*.py" | while read py_file; do python3 <<PATH>>/SecretFinder.py -i "$py_file" -o cli; done` 
+log: `find . -type f -name "*.log" | while read log_file; do python3 <<PATH>>/SecretFinder.py -i "$log_file" -o cli; done`
+cfg: `find . -type f -name "*.cfg" | while read cfg_file; do python3 <<PATH>>/SecretFinder.py -i "$cfg_file" -o cli; done` 
+ini: `find . -type f -name "*.ini" | while read ini_file; do python3 <<PATH>>/SecretFinder.py -i "$ini_file" -o cli; done` 
 
-Остальные файлы: `python3 SecretFinder.py -i . -o cli -r -g 'js;py;log;cfg;ini'`<br>
+Остальные файлы: `python3 SecretFinder.py -i . -o cli -r -g 'js;py;log;cfg;ini'`
 
 Анализируем вывод **ПОСЛЕ КАЖДОЙ КОМАНДЫ**<br>
 Разбиваем скан пофайлово т.к. инструмент лучше анализирует каждый файл по отельности (мелкими порциями) и для удобства анализа.
@@ -146,21 +146,3 @@ mv ./snyk /usr/local/bin/
 
 ### Burp Suite
 
-Устанавливаем с официального сайта https://portswigger.net/burp/releases/professional-community-2025-6-5
-После создаем временный проект в памяти и настраиваем системный прокси перехватывать запросы через 127.0.0.1:8080, после начинаем пользоваться приложением стараясь затронуть всю его функциональность, пользуемся некоторое время (один из триггеров телеметрии - время) и заходим во вкладку proxy -> HTTP History и анализируем запросы на предмет отсылки статистики.
-
-Пример для mattermost
-![alt text](image-1.png)
-
-
-## Ручное тестирование
-
-1) Проверяем адреса используемые в проекте. _Цель найти ендпоинты-сборщики статистики, выписываем их отдельно_
-Фильтруем и оставляем только уникальные адреса (по любым протоколам)
-`grep -rIohP '\b\w+:\/\/[^[:space:]]+' . | sort -u | uniq`
-Выписываем подозрительные адреса.
-
-Ищем вхождения каждого из найденных подозрительных адресов. (ВСТАВЛЯЕМ АДРЕС С \ ЭКРАНИРОВАНИЕМ)
-`grep -rI '<ПОДОЗРИТЕЛЬНЫЙ АДРЕС>' .`
-
-Для каждого случая анализируем вывод и смотрим нарушает ли он NDA.
